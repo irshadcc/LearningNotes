@@ -1,0 +1,21 @@
+#!/usr/bin/bpftrace
+
+BEGIN
+{
+    printf("Tracing ..");
+}
+
+uprobe:/lib/x86_64-linux-gnu/libc.so.6:malloc
+/ comm == "my_prog" /
+{
+    printf("Allocating %d", arg0);
+    @alloc_hist= hist(arg0)
+}
+
+END
+{
+    print(@alloc_hist);
+}
+
+
+

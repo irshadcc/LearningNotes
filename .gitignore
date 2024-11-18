@@ -1,0 +1,13 @@
+**/*.qcow2
+**/*.iso
+**/*.tar.gz
+**/*.gpg
+
+**/*.so
+**/*.cubin
+
+
+**/.ipynb_checkpoints
+
+**/build/*
+**/a.out
