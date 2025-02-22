@@ -24,6 +24,8 @@ int main() {
         std::cout << "\n";
     }
 
+    delete[] image;
+    delete[] blurredImage;
 
     return 0 ;
 }

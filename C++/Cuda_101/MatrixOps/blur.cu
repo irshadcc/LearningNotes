@@ -37,7 +37,7 @@ int* BlurKernelCuda(int *image, int rows, int columns) {
         std::ceil(columns/3.0),
         std::ceil(rows/3.0)
     );
-    dim3 blockDim(1, 3, 3);
+    dim3 blockDim(3, 3);
 
     int Gx = std::ceil(columns/3.0);
     int Gy = std::ceil(rows/3.0);
