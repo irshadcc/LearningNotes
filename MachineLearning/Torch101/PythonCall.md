@@ -24,6 +24,26 @@ class Tensor : public TensorBase {};
 
 ```
 
+```c++
+// python_variable.cpp
+static PyTypeObject THPVariableType = {
+    PyVarObject_HEAD_INIT(&THPVariableMetaType, 0)
+    "torch._C.TensorBase", /* tp_name */
+    sizeof(THPVariable), /* tp_basicsize */
+    .....
+}
+
+```
+
+# Slicing and Indexing
+
+1. The call starts from TensorIndexing.h::get_item()
+2. Based on slicing or indexing, 
+    -   indexing dispatches select.int
+    -   slicing dispatches slice_Tensor (wrapper_CompositeExplicitAutograd_Tensor_slice)
+
+    
+
 
 
 # Dispatching
@@ -58,3 +78,10 @@ class CopyBackwards : public Node {};
 
 torch distributed
 https://github.com/pytorch/pytorch/issues/241
+
+
+# Torch slicing
+
+select_int::call
+
+at::native::select_symint
