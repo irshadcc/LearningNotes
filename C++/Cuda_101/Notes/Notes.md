@@ -19,3 +19,8 @@ General Architecture
 
 In short,
 Grid of Work -> Cluster of Blocks -> Blocks of Thread -> Thread
+
+Streaming Multiprocessor
+
+Cores per SM = Total cores / SMs
+Per Core Register Memory = Register File Size / Cores per SM 
