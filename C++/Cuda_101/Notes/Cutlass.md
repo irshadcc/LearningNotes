@@ -61,3 +61,40 @@
 - For example
     - Nested Layout ((3,4), 2) : ((1,3), 12)
     - Flattened Layout (3,4,2) : (1,3,12)
+
+### Integer Semi Module 
+In the context of CuTe (part of NVIDIA's CUTLASS) and tensor layout theory, an integer semimodule is a mathematical structure used to describe the space of memory offsets.Specifically, it refers to a set of integers that is closed under addition and multiplication by non-negative integer scalars (natural numbers).
+For instance, any two layouts with integer strides may be concatenated, but the layouts 4 : 2 and 3 : e0 cannot be concatenated
+
+## Compatibility : Poset of Shapes
+
+If Shape A is compatible with Shape B, then all coordinate lists of A are also coordinate lists of B and coordinate of A can be used as coordinate of B. 
+
+```
+                36
+        /  |      |                  \
+    (36) (1,36) ... (6,6)  ... (2,2,3,3)
+                    / | \
+   ((1,6), 6) ... (6, (6,1)) ... (6,(2,3))
+
+```
+
+## Concatenation 
+
+By mode operations
+A op <B,C> = (A0, A1) op <B,C> = (A0 op B, A1 op C)
+
+
+## Layout Composition 
+
+- The composition f of layouts A and B produces layout R 
+    A o B -> R
+    with B being shape compatible with R.
+
+
+
+
+# References 
+1. https://developer.nvidia.com/blog/cutlass-linear-algebra-cuda/
+
+
